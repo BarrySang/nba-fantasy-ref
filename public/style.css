@@ -1,0 +1,181 @@
+:root {
+  --primary-text: rgb(46, 48, 47);
+  --secondary-text: rgb(64, 78, 71);
+  --primary-button-bg: rgba(85, 65, 187, 0.564);
+  --primary-button-text: white;
+  --button-bg-highlight: rgba(62, 48, 133, 0.564);
+
+}
+
+/* Reset defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* card effect on date pickers*/
+/* Container for the date inputs */
+.date-range {
+  display: flex;
+  gap: 1rem; /* space between cards */
+  margin-bottom: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap; /* responsive on small screens */
+}
+
+/* Each date input as a card */
+.date-range .date-card {
+  flex: 1 1 48%; /* two cards side by side, shrinking on small screens */
+  background-color: #ffffff20; /* semi-transparent card */
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.date-range .date-card label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--primary-text);
+}
+
+.date-range .date-card input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+/* Body styling */
+body {
+  background-color: rgb(209, 238, 238);
+  color: #f1f1f1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Header */
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+
+  color: var(--primary-text);
+}
+
+/* Section styling */
+section {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Section headings */
+section h2,
+section h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--secondary-text);
+  text-shadow: 1px 1px #00000050;
+}
+
+/* Labels and inputs */
+label {
+  display: block;
+  margin: 0.5rem 0 0.2rem;
+  font-weight: bold;
+  color: var(--secondary-text);
+}
+
+input[type="date"] {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 1rem;
+  outline: none;
+  font-size: 1rem;
+}
+
+/* Button */
+button#loadBtn {
+  width: 100%;
+  padding: 0.7rem;
+  background-color: var(--primary-button-bg);
+  color: var(--primary-button-text);
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+button#loadBtn:hover {
+  background-color: var(--button-bg-highlight);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Results list */
+#results {
+  list-style: none;
+  margin-top: 1rem;
+  padding-left: 0;
+}
+
+.result {
+  display: grid;
+  grid-template-columns: 1fr auto; /* team | number */
+  gap: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: var(--primary-text);
+}
+
+#results li {
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+#results li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.current-category {
+  color: var(--secondary-text);
+}
+
+.result {
+  color: var(--primary-text);
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  section {
+    padding: 1rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  button#loadBtn {
+    font-size: 1rem;
+  }
+}

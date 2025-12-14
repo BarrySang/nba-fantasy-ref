@@ -11,17 +11,23 @@
 </head>
 <body>
   <header>
-    <h1>Hello — index.html</h1>
+    <h1>NBA FANTASY REFERENCE</h1>
   </header>
 
   <section>
-  <h2>NBA Games: Top 10 Teams With Most Games in Range</h2>
+  <h2 class="current-category">Most Games in Range:</h2>
   
-  <label>Start Date:</label>
-  <input type="date" id="startDate">
+  <div class="date-range">
+  <div class="date-card">
+    <label for="startDate">Start</label>
+    <input type="date" id="startDate">
+  </div>
+  <div class="date-card">
+    <label for="endDate">End</label>
+    <input type="date" id="endDate">
+  </div>
+</div>
 
-  <label>End Date:</label>
-  <input type="date" id="endDate">
 
   <button id="loadBtn">Get Teams</button>
 

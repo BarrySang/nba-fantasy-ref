@@ -1,10 +1,9 @@
 $(document).ready(function () {
-  
   let API_KEY = null;
 
-  $.get("/config", function(config) {
+  $.get("/config", function (config) {
     API_KEY = config.API_KEY;
-  })
+  });
 
   $("#loadBtn").on("click", function () {
     const start = $("#startDate").val();
@@ -15,7 +14,7 @@ $(document).ready(function () {
       return;
     }
 
-    $("#results").html("<li>Loading…</li>");
+    $("#results").html('<li class="result">Loading…</li>');
 
     fetchGames(start, end);
   });
@@ -26,27 +25,29 @@ $(document).ready(function () {
     $.ajax({
       url,
       method: "GET",
-      headers: { "Authorization": API_KEY },
+      headers: { Authorization: API_KEY },
       success: function (data) {
         const games = data.data;
 
         if (!games.length) {
-          $("#results").html("<li>No games in this period.</li>");
+          $("#results").html(
+            '<li class-"result">No games in this period.</li>'
+          );
           return;
         }
 
         processGames(games);
       },
       error: function () {
-        $("#results").html("<li>Failed to load data.</li>");
-      }
+        $("#results").html('<li class="result">Failed to load data.</li>');
+      },
     });
   }
 
   function processGames(games) {
     const counts = {};
 
-    games.forEach(game => {
+    games.forEach((game) => {
       const home = game.home_team.full_name;
       const away = game.visitor_team.full_name;
 
@@ -61,7 +62,12 @@ $(document).ready(function () {
     $("#results").empty();
 
     sorted.forEach(([team, games]) => {
-      $("#results").append(`<li>${team}: ${games} games</li>`);
+      $("#results").append(`
+  <li class="result">
+    <span>${team}</span>
+    <span>${games}</span>
+  </li>
+`);
     });
   }
 });
