@@ -1,44 +1,42 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>My Project</title>
+  <head>
+    <meta charset="utf-8" />
+    <title>My Project</title>
 
-  <!-- Link to local stylesheet -->
-  <link rel="stylesheet" href="style.css">
+    <!-- Link to local stylesheet -->
+    <link rel="stylesheet" href="style.css" />
 
-  <!-- jQuery CDN (placed in head if you need it there; otherwise place before </body>) -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-  <header>
-    <h1>NBA FANTASY REFERENCE</h1>
-  </header>
+    <!-- jQuery CDN (placed in head if you need it there; otherwise place before </body>) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>NBA FANTASY REFERENCE</h1>
+    </header>
 
-  <section>
-  <h2 class="current-category">Most Games in Range:</h2>
-  
-  <div class="date-range">
-  <div class="date-card">
-    <label for="startDate">Start</label>
-    <input type="date" id="startDate">
-  </div>
-  <div class="date-card">
-    <label for="endDate">End</label>
-    <input type="date" id="endDate">
-  </div>
-</div>
+    <section>
+      <div class="date-today-container">
+        <p class="date-today"></p>
+      </div>
+      <h2 class="current-category">Most Games in Range:</h2>
 
+      <div class="date-range">
+        <div class="date-card">
+          <label for="startDate">Start</label>
+          <input type="date" id="startDate" />
+        </div>
+        <div class="date-card">
+          <label for="endDate">End</label>
+          <input type="date" id="endDate" />
+        </div>
+      </div>
 
-  <button id="loadBtn">Get Teams</button>
+      <button id="loadBtn">Get Teams</button>
 
-  <h3>Results</h3>
-  <ul id="results"></ul>
-</section>
+      <ul id="results"></ul>
+    </section>
 
-
-  <script src="script.js">
-
-</script>
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

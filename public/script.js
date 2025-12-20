@@ -19,6 +19,15 @@ $(document).ready(function () {
     fetchGames(start, end);
   });
 
+  const dateObject = new Date();
+  const dateToday =
+    String(dateObject.getDate()).padStart(2, "0") +
+    "/" +
+    String(dateObject.getMonth() + 1).padStart(2, "0") +
+    "/" +
+    dateObject.getFullYear();
+  $(".date-today").text(dateToday);
+
   function fetchGames(start, end) {
     const url = `https://api.balldontlie.io/v1/games?start_date=${start}&end_date=${end}&per_page=100`;
 
@@ -59,7 +68,13 @@ $(document).ready(function () {
       .sort((a, b) => b[1] - a[1])
       .slice(0, 10);
 
-    $("#results").empty();
+    // $("#results").empty();
+    $("#results").html(`
+  <li class="result header">
+    <span>Team</span>
+    <span>Games</span>
+  </li>
+`);
 
     sorted.forEach(([team, games]) => {
       $("#results").append(`
